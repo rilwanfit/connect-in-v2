@@ -1,0 +1,19 @@
+create_a_user:
+    path: /user
+    methods: [POST]
+    controller: connect_in.controller.user::createAUser
+
+registered_users:
+    path: /users
+    methods: [GET]
+    controller: connect_in.controller.user::getUsers
+
+add_a_friend:
+    path: /user/addFriend
+    methods: [POST]
+    controller: connect_in.controller.user:addFriend
+
+list_of_friends_for_a_user:
+    path: /user/{userId}/friends
+    methods: [GET]
+    controller: connect_in.controller.list_of_friends_for_a_user:getFriends

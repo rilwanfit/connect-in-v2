@@ -1,0 +1,37 @@
+broadway:
+    event_store: broadway.event_store.dbal
+
+services:
+    broadway.event_store.dbal:
+        class: Broadway\EventStore\Dbal\DBALEventStore
+        arguments:
+            - "@doctrine.dbal.default_connection"
+            - "@broadway.serializer.payload"
+            - "@broadway.serializer.metadata"
+            - "events"
+            - false
+            - "@broadway.uuid.converter"
+
+    doctrine.dbal.default_connection:
+        class: \Doctrine\DBAL\Connection
+        factory: ['Doctrine\DBAL\DriverManager', getConnection]
+        arguments:
+            - "%sqlite_store%"
+            - "@doctrine_dbal_configuration"
+
+    doctrine_dbal_configuration:
+      class: \Doctrine\DBAL\Configuration
+
+    connect_in.user.repository:
+        class: App\ConnectIn\Repository\UserRepository
+        arguments:
+            - '@broadway.event_store'
+            - '@broadway.event_handling.event_bus'
+            - ['@broadway.metadata_enriching_event_stream_decorator']
+
+    connect_in.user.command_handler:
+        class: App\ConnectIn\Command\UserCommandHandler
+        arguments:
+            - '@connect_in.user.repository'
+        tags:
+            - { name: broadway.command_handler }
