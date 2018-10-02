@@ -1,21 +1,6 @@
 # ConnectIn
 Social networking application using CQRS-ES with a help of broadway framework.
 
-## A bit of context
-Let’s assume we are a startup that wants to build a social network application to manage
-people’s connections in a high traffic scenario (millions of unique visitors per month).
-Yes... We are ambitious! ;-)
-People connect in groups to meet regularly. The website has registered users and the
-goal of the application is to create connections within the users and facilitate them to
-organize meetings within their groups. The users can be logging in with their
-linkedin/facebook/local account.
-Let’s also assume that a user can RSVP on a meeting of a group and that all users can
-access a (near-real) time report on a group and meeting popularity.
-We know it may seem familiar...but fear not! We will not be asking you to implement the
-whole meetup.com ;-)
-It is just to give you context, perhaps inspire you regarding domain model and help us
-describe the exercise in hand...
-
 ## Tech stack
 - Broadway
 - Symfony
