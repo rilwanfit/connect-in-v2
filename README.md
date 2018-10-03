@@ -45,11 +45,12 @@ This app doesn't have a GUI, only an API with the following endpoints:
 
 | Method | Path | Description | Action |
 |--------|------|-------------| ------- |
-| POST | `/user` | Create a new user, name should be given as form fields) and returns the userId | ```curl -X -F 'name=$name' POST localhost:8100/user ``` |
+| POST | `/user` | Create a new user, name should be given as form fields) and returns the userId | ```curl -X POST -F 'name=$name' localhost:8100/user ``` |
 | GET | `/users` | Retrieve registered users  | ``` curl localhost:8100/users ```
-| POST | `/user/addFriend` | Add a friend to a user (userId and friendId should be given as form fields) and returns the userId| ``` curl -X POST localhost:8100/user/addFriend ``` |
+| POST | `/user/addFriend` | Add a friend to a user (userId and friendId should be given as form fields) and returns the userId| ``` curl -X POST -X -F 'userId=$nameId' -X -F 'friendId=$friendId' localhost:8100/user/addFriend ``` |
 | GET | `/user/{userId}/friends` | Retrieve list of friends for a user  | ``` curl localhost:8100/user/$userId/friends ```
 
+Note: The ID used through out the project is UUID v4
 
 ## Code structure
 
