@@ -12,9 +12,15 @@ Social networking application using CQRS-ES with a help of broadway framework.
 
 ## Installation
 
-### Docker Compose
+### pre-prerequisite
+- docker
+- docker compose [how to install](https://docs.docker.com/compose/install/#install-compose)
+- if you already have running docker containers, please make sure that the port 8100 and 9200 is not occupied. 
 
+### How to setup the project
 ```sh
+git clone git@github.com:rilwanfit/connect-in-v2.git
+cd connect-in-v2 
 docker-compose up -d
 
 ```
@@ -43,6 +49,7 @@ This app doesn't have a GUI, only an API with the following endpoints:
 | GET | `/users` | Retrieve registered users  | ``` curl localhost:8100/users ```
 | POST | `/user/addFriend` | Add a friend to a user (userId and friendId should be given as form fields) and returns the userId| ``` curl -X POST localhost:8100/user/addFriend ``` |
 | GET | `/user/{userId}/friends` | Retrieve list of friends for a user  | ``` curl localhost:8100/user/$userId/friends ```
+
 
 ## Code structure
 
