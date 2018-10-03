@@ -17,10 +17,7 @@ Social networking application using CQRS-ES with a help of broadway framework.
 ```sh
 docker-compose up -d
 
-docker-compose exec app /bin/bash
-app/console broadway:event-store:schema:init
 ```
-us
 Docker-compose will set up the containers needed to run this app.
 
 To make sure the app running properly
@@ -51,6 +48,7 @@ This app doesn't have a GUI, only an API with the following endpoints:
 
 - Domain code can be found in `src/ConnectIn/`
 - ReadModel code can be found in `src/ConnectIn/ReadModel`
-- Controller / services can be found in `src/Controler`
+- Controller can be found in `src/Controler`
+- Database available in  root directory of the application.
 
 For more information, rilwanfit@gmail.com

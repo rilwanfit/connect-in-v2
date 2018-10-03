@@ -6,7 +6,7 @@
 parameters:
     sqlite_store:
         driver: pdo_sqlite
-        path: '../var/events.sqlite'
+        path: '../events.sqlite'
 
     elasticsearch:
         hosts:
